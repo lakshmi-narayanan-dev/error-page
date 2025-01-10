@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>error page</title>
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="./favicon.ico" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+    ::selection {
+      color: rgb(0, 0, 0);
+      background-color: rgb(255, 255, 255);
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: "Space Grotesk", serif !important;
+      box-sizing: border-box;
+      font-size: 20px;
+      text-transform: capitalize !important;
+      text-align: center;
+    }
+
+    body,
+    html {
+      zoom: 1 !important;
+      scroll-behavior: smooth !important;
+      max-width: 100%;
+      overflow-x: hidden;
+      transition: none !important;
+    }
+
+    /* Preloader */
+    .preloader {
+      position: fixed;
+      z-index: 100000000 !important;
+      background-color:rgb(255, 255, 255);
+      min-width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      min-height: 100vh;
+      max-height: 100vh;
+      display: flex;
+      top: 0;
+      left: 0;
+      align-items: center;
+      justify-content: center;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+
+    .preloader img {
+      max-height: 5rem;
+    }
+
+    .preloader-fade {
+      opacity: 0;
+      z-index: -10000 !important;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+
+    /* --------------------- */
+    /* Cooking */
+
+    .cooking {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: antiquewhite;
+    }
+
+    .cooking img{
+      max-height: 30rem;
+      margin-top: -10rem;
+    }
+
+    .cooking h2{
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cooking p{
+      font-size: 1.25rem;
+      padding: 0 20%;
+    }
+
+    .cooking h3{
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      font-weight: 200;
+      padding: 0 20%;
+    }
+
+    .cooking h3 a{
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-decoration: none;
+      color: red;
+      text-decoration: 2px underline;
+      text-underline-offset: 10px;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .cooking h3 a, .cooking h3, .cooking p{
+        font-size: 1rem;
+      }
+
+      .cooking h3 a{
+      text-underline-offset: 5px;
+      text-decoration: 1px underline;
+      }
+
+      .cooking h2{
+        font-size: 1.25rem;
+        padding: 0 10%;
+      }
+
+      .cooking img{
+      max-height: 18rem;
+      margin-top: -4rem;
+    }
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- preloader -->
+  <div class="preloader" id="preloader">
+    <img src="./assets/preload.gif" alt="Image" />
+  </div>
+
+  <!-- cooking -->
+   <div class="cooking">
+     <img src="./404.gif" alt="image">
+
+     <h2>
+      "Oops! Something's burning in the oven!"
+     </h2>
+     <p>
+      We were busy cooking up something amazing, but it looks like this page got overcooked and isn't on the menu.
+     </p>
+
+     <h3>
+     Kindly, Head back to our <a href="../" target="_self">HomePage</a>
+     </h3>
+
+   </div>
+
+
+</body>
+
+<script>
+  // preloader
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+      document.getElementById("preloader").classList.add("preloader-fade");
+    }, 2000);
+  });
+
+  // Resize refresh
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  console.log(w);
+
+  window.addEventListener('resize', function () {
+    if (Math.abs(window.innerWidth - w) >= 100) {
+      w = window.innerWidth;
+      console.log(w);
+
+      window.location.reload();
+    }
+  });
+
+</script>
+
+</html>
